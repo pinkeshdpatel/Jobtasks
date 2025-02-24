@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply text-gray-900 bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50 min-h-screen;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200;
+  }
+  
+  .btn-primary {
+    @apply text-white bg-indigo-600 hover:bg-indigo-700 shadow-sm hover:shadow;
+  }
+  
+  .btn-secondary {
+    @apply text-indigo-700 bg-indigo-50 hover:bg-indigo-100;
+  }
+
+  .task-tag {
+    @apply px-2.5 py-1 text-xs font-medium rounded-full;
+  }
+
+  .card-gradient {
+    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.8));
+    backdrop-filter: blur(10px);
+  }
+
+  .document-card {
+    @apply relative bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden border border-gray-100;
+  }
+
+  .document-icon {
+    @apply h-8 w-8;
+  }
+}
