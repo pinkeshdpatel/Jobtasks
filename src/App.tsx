@@ -21,6 +21,7 @@ function App() {
   const [showLinks, setShowLinks] = useState(false);
   const [isReady, setIsReady] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     initialize();
@@ -31,6 +32,30 @@ function App() {
       Promise.all([loadTasks()]).then(() => setIsReady(true));
     }
   }, [user, loadTasks]);
+
+  useEffect(() => {
+    // Check if environment variables are loaded
+    const checkEnv = () => {
+      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+      const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+      
+      if (!supabaseUrl || !supabaseKey) {
+        console.error('Missing environment variables');
+        return false;
+      }
+      return true;
+    };
+
+    setIsLoading(!checkEnv());
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50">
+        <div className="text-gray-600">Loading...</div>
+      </div>
+    );
+  }
 
   if (authLoading) {
     return (
@@ -141,7 +166,7 @@ function App() {
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div className="flex items-center">
               <LayoutDashboard className="h-8 w-8 text-indigo-600" />
-              <h1 className="ml-2 text-2xl font-bold text-gray-900">Task Manager</h1>
+              <h1 className="ml-2 text-2xl font-bold text-gray-900">JobTasks</h1>
             </div>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">

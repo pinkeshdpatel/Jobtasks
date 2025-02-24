@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "echo \"Building with env vars: $VITE_SUPABASE_URL\" && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },

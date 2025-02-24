@@ -1,4 +1,4 @@
-# TaskMan
+# JobTasks - Modern Task Management Dashboard
 
 A modern task management dashboard built with React, Vite, and Supabase. Features include:
 
@@ -67,6 +67,40 @@ VITE_GOOGLE_CLIENT_ID=your_google_client_id
 - View upcoming meetings
 - Seamless Google Calendar integration
 - Meeting details at a glance
+
+## 🚀 Deployment
+
+### Deploying to Netlify
+
+1. Install Netlify CLI:
+   ```bash
+   npm install -g netlify-cli
+   ```
+
+2. Login to Netlify:
+   ```bash
+   netlify login
+   ```
+
+3. Deploy your site:
+   ```bash
+   netlify deploy --prod
+   ```
+
+### Environment Variables
+
+Configure the following environment variables in Netlify:
+
+- `VITE_SUPABASE_URL`: Your Supabase project URL
+- `VITE_SUPABASE_ANON_KEY`: Your Supabase anonymous key
+- `VITE_GOOGLE_CLIENT_ID`: Your Google OAuth client ID
+
+### Custom Domain (Optional)
+
+1. Go to Netlify site settings
+2. Navigate to "Domain Management"
+3. Click "Add custom domain"
+4. Follow the DNS configuration instructions
 
 ## Contributing
 
